@@ -1,0 +1,59 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "news"
+    label: "News"
+    folder: "content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Category", name: "category", widget: "select", options: ["Tournament Results", "Match Results", "Team News", "Recap"] }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }
+
+  - name: "matches"
+    label: "Matches"
+    folder: "content/matches"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Opponent", name: "opponent", widget: "string" }
+      - { label: "Tournament", name: "tournament", widget: "string" }
+      - { label: "Time", name: "time", widget: "string" }
+      - { label: "Result", name: "result", widget: "string", required: false }
+      - { label: "Match Details", name: "details", widget: "markdown", required: false }
+
+  - name: "players"
+    label: "Players"
+    folder: "content/players"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Role", name: "role", widget: "select", options: ["Duelist", "Controller", "Sentinel", "Initiator", "Flex"] }
+      - { label: "Twitter URL", name: "twitter", widget: "string" }
+      - { label: "Twitch URL", name: "twitch", widget: "string" }
+      - { label: "Photo", name: "photo", widget: "image", required: false }
+      - { label: "Bio", name: "bio", widget: "markdown", required: false }
+
+  - name: "partners"
+    label: "Partners"
+    folder: "content/partners"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Category", name: "category", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Website", name: "website", widget: "string" }
+      - { label: "Logo", name: "logo", widget: "image", required: false }
+      - { label: "Order", name: "order", widget: "number", default: 0 }
