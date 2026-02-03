@@ -95,6 +95,11 @@ The site emphasizes Discord as the primary communication channel. Update Discord
    - Home page Discord widget
    - News page CTA
 
+## Technical Notes
+
+- **TypeScript Configuration**: Next.js may automatically modify `tsconfig.json` during builds (e.g., setting jsx to "react-jsx" or adding include paths). This is expected behavior and helps optimize the build process.
+- **Build Output**: The site uses static export, generating HTML files in the `out/` directory that can be deployed to any static hosting service.
+
 ## License
 
 © 2026 MVSK Esports. All rights reserved.

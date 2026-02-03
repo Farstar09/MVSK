@@ -130,6 +130,7 @@ export default function Home() {
               <p className="text-gray-400 mb-6">
                 Connect with fellow fans, get the latest updates, and chat with the team!
               </p>
+              {/* TODO: Replace YOUR_SERVER_ID with your actual Discord server ID */}
               <iframe 
                 src="https://discord.com/widget?id=YOUR_SERVER_ID&theme=dark" 
                 width="100%" 
