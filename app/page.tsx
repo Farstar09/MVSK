@@ -134,10 +134,8 @@ export default function Home() {
                 src="https://discord.com/widget?id=YOUR_SERVER_ID&theme=dark" 
                 width="100%" 
                 height="300" 
-                allowTransparency={true}
-                frameBorder="0" 
-                sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-                className="rounded-lg"
+                className="rounded-lg border-0"
+                style={{ background: 'transparent' }}
               ></iframe>
               <a 
                 href="https://discord.gg/mvsk" 

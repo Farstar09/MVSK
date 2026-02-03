@@ -87,10 +87,13 @@ The website features a sleek blue and black color scheme inspired by the MVSK Es
 
 ## Discord Integration
 
-The site emphasizes Discord as the primary communication channel. Update Discord server invite links in:
-- Footer component
-- Home page Discord widget
-- News page CTA
+The site emphasizes Discord as the primary communication channel. Update Discord server invite links and widget:
+
+1. **Discord Widget** (Home page): Replace `YOUR_SERVER_ID` in `app/page.tsx` with your actual Discord server ID
+2. **Discord Links**: Update the invite URL `https://discord.gg/mvsk` throughout the site:
+   - Footer component
+   - Home page Discord widget
+   - News page CTA
 
 ## License
 
