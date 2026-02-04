@@ -36,18 +36,18 @@ export default function Teams() {
     <div className="py-16 px-4">
       <div className="container mx-auto">
         {/* Hero */}
-        <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold mb-6">
+        <div className="text-center mb-16 animate-fade-in">
+          <h1 className="text-5xl font-bold mb-6 animate-slide-down">
             <span className="text-mvsk-blue">MVSK Hearts</span>
           </h1>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto animate-slide-down delay-100">
             Our elite Valorant roster competing at the highest level
           </p>
         </div>
 
         {/* Team Info */}
         <div className="max-w-4xl mx-auto mb-16">
-          <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-8">
+          <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-8 hover:border-mvsk-blue transition-all hover:shadow-lg hover:shadow-mvsk-blue/20 animate-slide-up">
             <h2 className="text-2xl font-bold mb-4">About MVSK Hearts</h2>
             <p className="text-gray-400 mb-4">
               MVSK Hearts is our flagship Valorant team, representing the pinnacle of 
@@ -55,16 +55,16 @@ export default function Teams() {
               teamwork to compete in the most prestigious tournaments worldwide.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-mvsk-blue">5</div>
+              <div className="text-center group hover:scale-110 transition-transform">
+                <div className="text-3xl font-bold text-mvsk-blue group-hover:animate-pulse">5</div>
                 <div className="text-sm text-gray-400">Active Players</div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-mvsk-blue">10+</div>
+              <div className="text-center group hover:scale-110 transition-transform">
+                <div className="text-3xl font-bold text-mvsk-blue group-hover:animate-pulse">10+</div>
                 <div className="text-sm text-gray-400">Tournaments</div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-mvsk-blue">#1</div>
+              <div className="text-center group hover:scale-110 transition-transform">
+                <div className="text-3xl font-bold text-mvsk-blue group-hover:animate-pulse">#1</div>
                 <div className="text-sm text-gray-400">Regional Rank</div>
               </div>
             </div>
@@ -73,22 +73,23 @@ export default function Teams() {
 
         {/* Player Cards */}
         <div>
-          <h2 className="text-3xl font-bold mb-8 text-center">Our Roster</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center animate-fade-in">Our Roster</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {players.map((player, index) => (
               <div 
                 key={index}
-                className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 hover:border-mvsk-blue transition-all hover:transform hover:scale-105"
+                className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 hover:border-mvsk-blue transition-all hover:transform hover:scale-105 hover:shadow-lg hover:shadow-mvsk-blue/20 animate-slide-up group"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Player Avatar Placeholder */}
-                <div className="w-full aspect-square bg-gradient-to-br from-mvsk-blue/20 to-mvsk-dark rounded-lg mb-4 flex items-center justify-center">
-                  <div className="text-6xl font-bold text-mvsk-blue opacity-20">
+                <div className="w-full aspect-square bg-gradient-to-br from-mvsk-blue/20 to-mvsk-dark rounded-lg mb-4 flex items-center justify-center overflow-hidden relative group-hover:from-mvsk-blue/30 transition-all">
+                  <div className="text-6xl font-bold text-mvsk-blue opacity-20 group-hover:opacity-30 group-hover:scale-110 transition-all">
                     {player.name.charAt(0)}
                   </div>
                 </div>
 
                 {/* Player Info */}
-                <h3 className="text-2xl font-bold mb-2">{player.name}</h3>
+                <h3 className="text-2xl font-bold mb-2 group-hover:text-mvsk-blue transition-colors">{player.name}</h3>
                 <div className="text-mvsk-blue font-semibold mb-4">{player.role}</div>
 
                 {/* Social Links */}
@@ -97,7 +98,7 @@ export default function Teams() {
                     href={player.twitter}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-mvsk-blue transition-colors"
+                    className="text-gray-400 hover:text-mvsk-blue transition-all hover:scale-125"
                     aria-label="Twitter"
                   >
                     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -108,7 +109,7 @@ export default function Teams() {
                     href={player.twitch}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-mvsk-blue transition-colors"
+                    className="text-gray-400 hover:text-mvsk-blue transition-all hover:scale-125"
                     aria-label="Twitch"
                   >
                     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -123,9 +124,9 @@ export default function Teams() {
 
         {/* Staff Section */}
         <div className="mt-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">Coaching Staff</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center animate-fade-in">Coaching Staff</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-            <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6">
+            <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 hover:border-mvsk-blue transition-all hover:shadow-lg hover:shadow-mvsk-blue/20 hover:scale-105 animate-slide-in-left">
               <h3 className="text-xl font-bold mb-2">Head Coach</h3>
               <div className="text-mvsk-blue font-semibold mb-2">Strategic Leadership</div>
               <p className="text-gray-400 text-sm">
@@ -133,7 +134,7 @@ export default function Teams() {
                 tactical expertise.
               </p>
             </div>
-            <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6">
+            <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 hover:border-mvsk-blue transition-all hover:shadow-lg hover:shadow-mvsk-blue/20 hover:scale-105 animate-slide-in-right">
               <h3 className="text-xl font-bold mb-2">Analyst</h3>
               <div className="text-mvsk-blue font-semibold mb-2">Data & Strategy</div>
               <p className="text-gray-400 text-sm">
