@@ -9,8 +9,8 @@ export default function Footer() {
           <div className="animate-slide-up">
             <h3 className="text-xl font-bold text-mvsk-blue mb-4">MVSK Esports</h3>
             <p className="text-gray-400 text-sm">
-              Dominating Valorant as MVSK Hearts. 
-              Join us on our journey to esports excellence.
+              Competing in Valorant as MVSK Hearts. 
+              Follow our matches and join the community.
             </p>
           </div>
 
@@ -19,17 +19,17 @@ export default function Footer() {
             <h3 className="text-xl font-bold text-mvsk-blue mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/about" className="text-gray-400 hover:text-mvsk-blue transition-all hover:translate-x-1 inline-block">
+                <Link href="/about" className="text-gray-400 hover:text-mvsk-blue transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/teams" className="text-gray-400 hover:text-mvsk-blue transition-all hover:translate-x-1 inline-block">
+                <Link href="/teams" className="text-gray-400 hover:text-mvsk-blue transition-colors">
                   Our Teams
                 </Link>
               </li>
               <li>
-                <Link href="/news" className="text-gray-400 hover:text-mvsk-blue transition-all hover:translate-x-1 inline-block">
+                <Link href="/news" className="text-gray-400 hover:text-mvsk-blue transition-colors">
                   Latest News
                 </Link>
               </li>
@@ -38,13 +38,13 @@ export default function Footer() {
 
           {/* Social Links */}
           <div className="animate-slide-up delay-200">
-            <h3 className="text-xl font-bold text-mvsk-blue mb-4">Connect With Us</h3>
+            <h3 className="text-xl font-bold text-mvsk-blue mb-4">Connect</h3>
             <div className="flex space-x-4">
               <a 
                 href="https://discord.gg/mvsk" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-mvsk-blue transition-all hover:scale-125"
+                className="text-gray-400 hover:text-mvsk-blue transition-colors"
                 aria-label="Discord"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -55,7 +55,7 @@ export default function Footer() {
                 href="https://twitch.tv/mvsk" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-mvsk-blue transition-all hover:scale-125"
+                className="text-gray-400 hover:text-mvsk-blue hover:translate-y-[-2px] transition-all"
                 aria-label="Twitch"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -66,7 +66,7 @@ export default function Footer() {
                 href="https://youtube.com/@mvsk" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-mvsk-blue transition-all hover:scale-125"
+                className="text-gray-400 hover:text-mvsk-blue transition-colors"
                 aria-label="YouTube"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

@@ -8,29 +8,29 @@ export default function About() {
             About <span className="text-mvsk-blue">MVSK Esports</span>
           </h1>
           <p className="text-xl text-gray-400 animate-slide-down delay-100">
-            Dedicated to excellence in competitive gaming
+            We're just here to play Valorant and have a good time
           </p>
         </div>
 
         {/* Mission & Vision */}
         <section className="mb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-8 hover:border-mvsk-blue transition-all hover:shadow-lg hover:shadow-mvsk-blue/20 hover:scale-105 animate-slide-in-left">
-              <h2 className="text-2xl font-bold mb-4 text-mvsk-blue">Our Mission</h2>
+            <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-8 hover:border-mvsk-blue transition-all animate-slide-in-left">
+              <h2 className="text-2xl font-bold mb-4 text-mvsk-blue">What We're About</h2>
               <p className="text-gray-400">
-                To build a world-class esports organization that fosters talent, 
-                promotes competitive excellence, and creates a positive community 
-                for players and fans alike. We strive to set new standards in 
-                Valorant esports through dedication, teamwork, and innovation.
+                MVSK started as a group of friends who wanted to compete in Valorant. 
+                We're focused on grinding ranked, improving together, and making 
+                some noise in tournaments. Nothing fancy - just dedicated players 
+                trying to get better every day.
               </p>
             </div>
-            <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-8 hover:border-mvsk-blue transition-all hover:shadow-lg hover:shadow-mvsk-blue/20 hover:scale-105 animate-slide-in-right">
-              <h2 className="text-2xl font-bold mb-4 text-mvsk-blue">Our Vision</h2>
+            <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-8 hover:border-mvsk-blue transition-colors animate-slide-in-right">
+              <h2 className="text-2xl font-bold mb-4 text-mvsk-blue">Where We're Going</h2>
               <p className="text-gray-400">
-                To become a leading force in the global esports scene, recognized 
-                for our competitive achievements, professional standards, and 
-                contribution to the gaming community. We aim to inspire the next 
-                generation of esports athletes.
+                Our goal? Win as many matches as possible and see how far we can 
+                take this. We're competing in regional tournaments now, and who 
+                knows - maybe we'll make it to the big leagues someday. One round 
+                at a time.
               </p>
             </div>
           </div>
@@ -38,52 +38,48 @@ export default function About() {
 
         {/* Achievements Timeline */}
         <section>
-          <h2 className="text-3xl font-bold mb-8 animate-fade-in">Our Journey</h2>
+          <h2 className="text-3xl font-bold mb-8 animate-fade-in">The Story So Far</h2>
           <div className="space-y-6">
             <div className="relative pl-8 border-l-2 border-mvsk-blue animate-slide-in-left delay-100">
               <div className="absolute left-0 top-0 w-4 h-4 bg-mvsk-blue rounded-full -translate-x-[9px] animate-pulse"></div>
-              <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 hover:border-mvsk-blue transition-all hover:shadow-lg hover:shadow-mvsk-blue/20 hover:scale-105">
+              <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 hover:border-mvsk-blue transition-colors">
                 <div className="text-sm text-mvsk-blue font-semibold mb-2">2026</div>
-                <h3 className="text-xl font-bold mb-2">Current Season</h3>
+                <h3 className="text-xl font-bold mb-2">Right Now</h3>
                 <p className="text-gray-400">
-                  MVSK Hearts competing in VCT Regional Qualifiers, aiming for international 
-                  championship qualification.
+                  Competing in VCT Regional Qualifiers. The grind continues.
                 </p>
               </div>
             </div>
 
             <div className="relative pl-8 border-l-2 border-mvsk-blue animate-slide-in-left delay-200">
               <div className="absolute left-0 top-0 w-4 h-4 bg-mvsk-blue rounded-full -translate-x-[9px]"></div>
-              <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 hover:border-mvsk-blue transition-all hover:shadow-lg hover:shadow-mvsk-blue/20 hover:scale-105">
+              <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 hover:bg-mvsk-blue/5 transition-colors">
                 <div className="text-sm text-mvsk-blue font-semibold mb-2">January 2026</div>
-                <h3 className="text-xl font-bold mb-2">Regional Championship Victory</h3>
+                <h3 className="text-xl font-bold mb-2">First Big Win</h3>
                 <p className="text-gray-400">
-                  MVSK Hearts secured first place in the regional tournament, 
-                  demonstrating exceptional teamwork and strategy.
+                  Won our first regional tournament. Felt pretty good not gonna lie.
                 </p>
               </div>
             </div>
 
             <div className="relative pl-8 border-l-2 border-mvsk-blue animate-slide-in-left delay-300">
               <div className="absolute left-0 top-0 w-4 h-4 bg-mvsk-blue rounded-full -translate-x-[9px]"></div>
-              <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 hover:border-mvsk-blue transition-all hover:shadow-lg hover:shadow-mvsk-blue/20 hover:scale-105">
+              <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 hover:border-mvsk-blue/50 transition-all">
                 <div className="text-sm text-mvsk-blue font-semibold mb-2">2025</div>
-                <h3 className="text-xl font-bold mb-2">Team Formation</h3>
+                <h3 className="text-xl font-bold mb-2">Team Assembled</h3>
                 <p className="text-gray-400">
-                  MVSK Hearts Valorant team officially formed with talented players 
-                  from across the region.
+                  Got the squad together. Five players ready to lock in.
                 </p>
               </div>
             </div>
 
             <div className="relative pl-8 border-l-2 border-mvsk-blue animate-slide-in-left delay-400">
               <div className="absolute left-0 top-0 w-4 h-4 bg-mvsk-blue rounded-full -translate-x-[9px]"></div>
-              <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 hover:border-mvsk-blue transition-all hover:shadow-lg hover:shadow-mvsk-blue/20 hover:scale-105">
+              <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 hover:translate-x-1 transition-transform">
                 <div className="text-sm text-mvsk-blue font-semibold mb-2">2025</div>
-                <h3 className="text-xl font-bold mb-2">Organization Founded</h3>
+                <h3 className="text-xl font-bold mb-2">Started MVSK</h3>
                 <p className="text-gray-400">
-                  MVSK Esports was established with the vision of creating a premier 
-                  esports organization focused on Valorant competitive gaming.
+                  Decided to make this official and see where it goes.
                 </p>
               </div>
             </div>
@@ -92,27 +88,27 @@ export default function About() {
 
         {/* Values */}
         <section className="mt-16">
-          <h2 className="text-3xl font-bold mb-8 text-center animate-fade-in">Our Core Values</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center animate-fade-in">What Matters to Us</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 text-center hover:border-mvsk-blue transition-all hover:shadow-lg hover:shadow-mvsk-blue/20 hover:scale-105 animate-slide-up delay-100">
-              <div className="text-4xl mb-4 animate-float">🎯</div>
-              <h3 className="text-xl font-bold mb-3">Excellence</h3>
+            <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 text-center hover:bg-mvsk-blue/5 transition-colors animate-slide-up delay-100">
+              <div className="text-4xl mb-4">🎯</div>
+              <h3 className="text-xl font-bold mb-3">Get Better</h3>
               <p className="text-gray-400 text-sm">
-                We strive for the highest standards in everything we do
+                Always grinding to improve our gameplay
               </p>
             </div>
-            <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 text-center hover:border-mvsk-blue transition-all hover:shadow-lg hover:shadow-mvsk-blue/20 hover:scale-105 animate-slide-up delay-200">
-              <div className="text-4xl mb-4 animate-float delay-100">🤝</div>
-              <h3 className="text-xl font-bold mb-3">Teamwork</h3>
+            <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 text-center hover:border-mvsk-blue transition-all animate-slide-up delay-200">
+              <div className="text-4xl mb-4">🤝</div>
+              <h3 className="text-xl font-bold mb-3">Play Together</h3>
               <p className="text-gray-400 text-sm">
-                Success comes from collaboration and mutual support
+                We win as a team, lose as a team
               </p>
             </div>
-            <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 text-center hover:border-mvsk-blue transition-all hover:shadow-lg hover:shadow-mvsk-blue/20 hover:scale-105 animate-slide-up delay-300">
-              <div className="text-4xl mb-4 animate-float delay-200">💪</div>
-              <h3 className="text-xl font-bold mb-3">Dedication</h3>
+            <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 text-center hover:translate-y-[-4px] transition-transform animate-slide-up delay-300">
+              <div className="text-4xl mb-4">💪</div>
+              <h3 className="text-xl font-bold mb-3">Stay Locked In</h3>
               <p className="text-gray-400 text-sm">
-                Committed to continuous improvement and growth
+                No days off when you're chasing wins
               </p>
             </div>
           </div>

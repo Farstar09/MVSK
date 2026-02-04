@@ -17,29 +17,25 @@ export default function Header() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
-            <Link href="/" className="relative hover:text-mvsk-blue transition-colors group">
-              <span>Home</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-mvsk-blue group-hover:w-full transition-all duration-300"></span>
+            <Link href="/" className="hover:text-mvsk-blue transition-colors">
+              Home
             </Link>
-            <Link href="/about" className="relative hover:text-mvsk-blue transition-colors group">
+            <Link href="/about" className="relative hover:text-mvsk-blue transition-all group">
               <span>About</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-mvsk-blue group-hover:w-full transition-all duration-300"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-mvsk-blue group-hover:w-full transition-all"></span>
             </Link>
-            <Link href="/teams" className="relative hover:text-mvsk-blue transition-colors group">
-              <span>Teams</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-mvsk-blue group-hover:w-full transition-all duration-300"></span>
+            <Link href="/teams" className="hover:text-mvsk-blue hover:translate-y-[-2px] transition-all inline-block">
+              Teams
             </Link>
-            <Link href="/schedule" className="relative hover:text-mvsk-blue transition-colors group">
-              <span>Schedule</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-mvsk-blue group-hover:w-full transition-all duration-300"></span>
+            <Link href="/schedule" className="px-3 py-1 rounded hover:bg-mvsk-blue/10 hover:text-mvsk-blue transition-all">
+              Schedule
             </Link>
-            <Link href="/news" className="relative hover:text-mvsk-blue transition-colors group">
-              <span>News</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-mvsk-blue group-hover:w-full transition-all duration-300"></span>
+            <Link href="/news" className="relative group hover:text-mvsk-blue transition-colors">
+              <span className="relative z-10">News</span>
+              <span className="absolute inset-0 bg-mvsk-blue/10 scale-0 group-hover:scale-100 transition-transform rounded"></span>
             </Link>
-            <Link href="/partners" className="relative hover:text-mvsk-blue transition-colors group">
-              <span>Partners</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-mvsk-blue group-hover:w-full transition-all duration-300"></span>
+            <Link href="/partners" className="hover:text-mvsk-blue hover:tracking-wider transition-all">
+              Partners
             </Link>
           </div>
 
