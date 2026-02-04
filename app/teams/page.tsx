@@ -128,6 +128,7 @@ export default function Teams() {
                     </svg>
                   </a>
                 </div>
+              </div>
               )
             })}
           </div>
