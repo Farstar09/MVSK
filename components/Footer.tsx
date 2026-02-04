@@ -24,12 +24,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/teams" className="text-gray-400 hover:text-mvsk-blue hover:underline transition-all">
+                <Link href="/teams" className="text-gray-400 hover:text-mvsk-blue transition-colors">
                   Our Teams
                 </Link>
               </li>
               <li>
-                <Link href="/news" className="text-gray-400 hover:text-mvsk-blue transition-all">
+                <Link href="/news" className="text-gray-400 hover:text-mvsk-blue transition-colors">
                   Latest News
                 </Link>
               </li>

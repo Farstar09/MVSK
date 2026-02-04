@@ -173,7 +173,7 @@ export default function Home() {
                   href="https://youtube.com/@mvsk" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-4 p-4 bg-mvsk-dark rounded-lg hover:border hover:border-mvsk-blue/20 transition-all group"
+                  className="flex items-center space-x-4 p-4 bg-mvsk-dark rounded-lg hover:bg-mvsk-dark/50 transition-colors group"
                 >
                   <svg className="w-10 h-10 text-red-500" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
@@ -204,7 +204,7 @@ export default function Home() {
             <div className="w-40 h-24 bg-mvsk-gray border border-mvsk-blue/20 rounded-lg flex items-center justify-center text-gray-400 hover:translate-y-[-4px] transition-transform animate-slide-up delay-300">
               Partner 3
             </div>
-            <div className="w-40 h-24 bg-mvsk-gray border border-mvsk-blue/20 rounded-lg flex items-center justify-center text-gray-400 hover:border-mvsk-blue transition-all animate-slide-up delay-400">
+            <div className="w-40 h-24 bg-mvsk-gray border border-mvsk-blue/20 rounded-lg flex items-center justify-center text-gray-400 hover:border-mvsk-blue transition-colors animate-slide-up delay-400">
               Partner 4
             </div>
           </div>

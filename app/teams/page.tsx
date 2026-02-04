@@ -80,14 +80,17 @@ export default function Teams() {
         <div>
           <h2 className="text-3xl font-bold mb-8 text-center animate-fade-in">The Roster</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {players.map((player, index) => (
+            {players.map((player, index) => {
+              // Assign hover effects based on role for consistency
+              const roleHoverEffect = 
+                player.role === 'Duelist' || player.role === 'Initiator' ? 'hover:translate-y-[-4px]' : 
+                player.role === 'Controller' || player.role === 'Sentinel' ? 'hover:scale-105' : 
+                'hover:bg-mvsk-blue/5';
+              
+              return (
               <div 
                 key={index}
-                className={`bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 hover:border-mvsk-blue transition-all animate-slide-up ${getDelayClass(index)} group ${
-                  index % 3 === 0 ? 'hover:translate-y-[-4px]' : 
-                  index % 3 === 1 ? 'hover:scale-105' : 
-                  'hover:bg-mvsk-blue/5'
-                }`}
+                className={`bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 hover:border-mvsk-blue transition-all animate-slide-up ${getDelayClass(index)} group ${roleHoverEffect}`}
               >
                 {/* Player Avatar Placeholder */}
                 <div className="w-full aspect-square bg-gradient-to-br from-mvsk-blue/20 to-mvsk-dark rounded-lg mb-4 flex items-center justify-center overflow-hidden relative group-hover:from-mvsk-blue/30 transition-colors">
@@ -125,8 +128,8 @@ export default function Teams() {
                     </svg>
                   </a>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
 
