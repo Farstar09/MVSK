@@ -95,6 +95,28 @@ The site emphasizes Discord as the primary communication channel. Update Discord
    - Home page Discord widget
    - News page CTA
 
+## Deployment
+
+The site is automatically deployed to GitHub Pages at https://farstar09.github.io/MVSK when changes are pushed to the `main` branch.
+
+### GitHub Pages Configuration
+
+The deployment workflow is located in `.github/workflows/deploy.yml` and:
+1. Builds the Next.js application using `npm run build`
+2. Uploads the static files from the `out/` directory
+3. Deploys to GitHub Pages
+
+**Important**: Ensure GitHub Pages is configured in your repository settings:
+- Go to **Settings** → **Pages**
+- Under **Source**, select **GitHub Actions** (not "Deploy from a branch")
+
+### Manual Deployment
+
+To manually trigger a deployment:
+1. Go to the **Actions** tab in the GitHub repository
+2. Select **Deploy to GitHub Pages** workflow
+3. Click **Run workflow** → **Run workflow**
+
 ## Technical Notes
 
 - **TypeScript Configuration**: Next.js may automatically modify `tsconfig.json` during builds (e.g., setting jsx to "react-jsx" or adding include paths). This is expected behavior and helps optimize the build process.
