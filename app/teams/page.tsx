@@ -5,30 +5,35 @@ export default function Teams() {
       role: "Duelist",
       twitter: "https://twitter.com/player1",
       twitch: "https://twitch.tv/player1",
+      delayClass: "",
     },
     {
       name: "Player Two",
       role: "Controller",
       twitter: "https://twitter.com/player2",
       twitch: "https://twitch.tv/player2",
+      delayClass: "delay-100",
     },
     {
       name: "Player Three",
       role: "Sentinel",
       twitter: "https://twitter.com/player3",
       twitch: "https://twitch.tv/player3",
+      delayClass: "delay-200",
     },
     {
       name: "Player Four",
       role: "Initiator",
       twitter: "https://twitter.com/player4",
       twitch: "https://twitch.tv/player4",
+      delayClass: "delay-300",
     },
     {
       name: "Player Five",
       role: "Flex",
       twitter: "https://twitter.com/player5",
       twitch: "https://twitch.tv/player5",
+      delayClass: "delay-400",
     },
   ]
 
@@ -78,8 +83,7 @@ export default function Teams() {
             {players.map((player, index) => (
               <div 
                 key={index}
-                className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 hover:border-mvsk-blue transition-all hover:transform hover:scale-105 hover:shadow-lg hover:shadow-mvsk-blue/20 animate-slide-up group"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className={`bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 hover:border-mvsk-blue transition-all hover:transform hover:scale-105 hover:shadow-lg hover:shadow-mvsk-blue/20 animate-slide-up ${player.delayClass} group`}
               >
                 {/* Player Avatar Placeholder */}
                 <div className="w-full aspect-square bg-gradient-to-br from-mvsk-blue/20 to-mvsk-dark rounded-lg mb-4 flex items-center justify-center overflow-hidden relative group-hover:from-mvsk-blue/30 transition-all">
