@@ -106,7 +106,12 @@ The deployment workflow is located in `.github/workflows/deploy.yml` and:
 2. Uploads the static files from the `out/` directory
 3. Deploys to GitHub Pages
 
-**Important**: Ensure GitHub Pages is configured in your repository settings:
+**Important Configuration**:
+- The `basePath: '/MVSK'` in `next.config.js` is required for GitHub Pages repository sites to ensure CSS, JavaScript, and other assets load correctly
+- This basePath matches the repository name and ensures assets are served from `https://farstar09.github.io/MVSK/_next/...` instead of `https://farstar09.github.io/_next/...`
+- When running locally with `npm run dev`, access the site at `http://localhost:3000/MVSK/` (note the `/MVSK/` path)
+
+**Repository Settings**:
 - Go to **Settings** → **Pages**
 - Under **Source**, select **GitHub Actions** (not "Deploy from a branch")
 
