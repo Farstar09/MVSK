@@ -12,6 +12,29 @@ body {
   min-height: 100vh;
 }
 
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Theme variables for light/dark mode */
+body.light-mode {
+  background: linear-gradient(to bottom, #f0f4f8, #e1e8ed);
+  color: #1a202c;
+}
+
+body.light-mode .bg-mvsk-gray {
+  background-color: #ffffff !important;
+}
+
+body.light-mode .text-gray-400 {
+  color: #4a5568 !important;
+}
+
+body.light-mode .border-mvsk-blue\/20 {
+  border-color: rgba(0, 102, 255, 0.3) !important;
+}
+
 /* Keyframe Animations */
 @keyframes fadeIn {
   from {
@@ -149,5 +172,427 @@ body {
 
 .delay-600 {
   animation-delay: 600ms;
+}
+
+/* Gaming-themed typing text effect */
+@keyframes valorantTypeText {
+  0% { width: 0; opacity: 0; }
+  1% { opacity: 1; }
+  100% { width: 100%; opacity: 1; }
+}
+
+.esports-typing-text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 4px solid #0066ff;
+  animation: valorantTypeText 3s steps(30, end) forwards, blinkTextCursor 0.8s step-end infinite;
+}
+
+@keyframes blinkTextCursor {
+  50% { border-color: transparent; }
+}
+
+/* Hexagonal particle effects for gaming aesthetic */
+.hex-particle-field {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hex-particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #0066ff;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  opacity: 0;
+  animation: hexDrift 15s linear infinite;
+}
+
+@keyframes hexDrift {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Competitive gaming card effects */
+.competition-card {
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+}
+
+.competition-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 40%, rgba(0, 102, 255, 0.1) 50%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+}
+
+.competition-card:hover::after {
+  opacity: 1;
+  animation: scanlineEffect 1.5s linear infinite;
+}
+
+@keyframes scanlineEffect {
+  0% { background-position: -100% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.competition-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 102, 255, 0.35);
+}
+
+/* Team roster hover effects */
+.roster-member-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+.roster-member-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent, #0066ff, transparent 30%);
+  animation: rotateBorder 4s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+@keyframes rotateBorder {
+  to { transform: rotate(360deg); }
+}
+
+.roster-member-card:hover::before {
+  opacity: 0.8;
+}
+
+.roster-member-card:hover {
+  transform: scale(1.05) rotateY(5deg);
+}
+
+/* Match schedule pulse effect */
+.upcoming-match {
+  animation: matchPulse 3s ease-in-out infinite;
+}
+
+@keyframes matchPulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(0, 102, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 102, 255, 0.6), 0 0 45px rgba(0, 102, 255, 0.4);
+  }
+}
+
+/* Esports CTA button with energy effect */
+.action-btn-energy {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, #0066ff, #0052cc);
+}
+
+.action-btn-energy::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s, height 0.5s;
+}
+
+.action-btn-energy:active::before {
+  width: 400px;
+  height: 400px;
+}
+
+/* Tournament bracket glow */
+.bracket-highlight {
+  box-shadow: 0 0 20px rgba(0, 102, 255, 0.5);
+  animation: bracketGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes bracketGlow {
+  from {
+    box-shadow: 0 0 20px rgba(0, 102, 255, 0.5);
+  }
+  to {
+    box-shadow: 0 0 35px rgba(0, 102, 255, 0.8), 0 0 50px rgba(0, 102, 255, 0.4);
+  }
+}
+
+/* Victory celebration animation */
+.victory-celebration {
+  animation: celebrateWin 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes celebrateWin {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.1) rotate(-5deg); }
+  75% { transform: scale(1.1) rotate(5deg); }
+}
+
+/* Stream indicator live pulse */
+.stream-live-indicator {
+  position: relative;
+}
+
+.stream-live-indicator::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: #ff0000;
+  animation: liveStreamPulse 2s infinite;
+}
+
+@keyframes liveStreamPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/* Loading screen for esports theme */
+.esports-loading-screen {
+  position: fixed;
+  inset: 0;
+  background: #0a0a0a;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.7s ease-out;
+}
+
+.esports-loading-screen.fade-exit {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loading-hexagon {
+  width: 80px;
+  height: 80px;
+  position: relative;
+}
+
+.loading-hexagon::before,
+.loading-hexagon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 4px solid transparent;
+  border-top-color: #0066ff;
+  border-radius: 50%;
+  animation: hexagonSpin 1.5s linear infinite;
+}
+
+.loading-hexagon::after {
+  inset: 12px;
+  border-top-color: #00a3ff;
+  animation-duration: 1s;
+  animation-direction: reverse;
+}
+
+@keyframes hexagonSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Jump-to-top esports button */
+.jump-top-esports {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(135deg, #0066ff 0%, #0044aa 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  box-shadow: 0 6px 20px rgba(0, 102, 255, 0.5);
+  z-index: 100;
+}
+
+.jump-top-esports.hide-button {
+  opacity: 0;
+  transform: scale(0) rotate(180deg);
+  pointer-events: none;
+}
+
+.jump-top-esports:hover {
+  transform: scale(1.2) rotate(-15deg);
+  box-shadow: 0 8px 30px rgba(0, 102, 255, 0.7);
+}
+
+/* Search overlay esports style */
+.search-gaming-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 100px;
+}
+
+.search-gaming-panel {
+  width: 90%;
+  max-width: 700px;
+  background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+  border: 2px solid rgba(0, 102, 255, 0.4);
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 102, 255, 0.3);
+  overflow: hidden;
+}
+
+/* Testimonial gaming cards */
+.testimonial-gamer-card {
+  background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+  border: 1px solid rgba(0, 102, 255, 0.2);
+  border-radius: 10px;
+  padding: 25px;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-gamer-card::before {
+  content: '"';
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  font-size: 80px;
+  color: rgba(0, 102, 255, 0.15);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+/* Form field gaming enhancement */
+.form-gaming-field {
+  background: rgba(26, 26, 26, 0.6);
+  border: 2px solid rgba(0, 102, 255, 0.2);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.form-gaming-field:focus {
+  outline: none;
+  border-color: #0066ff;
+  box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.form-gaming-field.field-error {
+  border-color: #ff4444;
+  animation: fieldShake 0.4s;
+}
+
+@keyframes fieldShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+
+.form-gaming-field.field-success {
+  border-color: #00ff88;
+}
+
+/* Navigation progress bar */
+.nav-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0066ff, #00a3ff, #0066ff);
+  background-size: 200%;
+  animation: progressSlide 1.5s linear infinite;
+  z-index: 9999;
+  transition: width 0.3s ease-out;
+}
+
+@keyframes progressSlide {
+  to { background-position: -200% 0; }
+}
+
+/* Parallax gaming background */
+.parallax-gaming-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background-size: cover;
+  background-position: center;
+  transform: translateZ(-1px) scale(1.5);
+  z-index: -1;
+}
+
+/* Carousel for featured content */
+.featured-carousel-track {
+  display: flex;
+  transition: transform 0.7s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.featured-carousel-slide {
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.carousel-dot.active-dot {
+  background: #0066ff;
+  width: 30px;
+  border-radius: 6px;
 }
 
