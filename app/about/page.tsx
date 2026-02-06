@@ -86,29 +86,53 @@ export default function About() {
           </div>
         </section>
 
-        {/* Values */}
-        <section className="mt-16">
-          <h2 className="text-3xl font-bold mb-8 text-center animate-fade-in">What Matters to Us</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 text-center hover:bg-mvsk-blue/5 transition-colors animate-slide-up delay-100">
-              <div className="text-4xl mb-4">🎯</div>
-              <h3 className="text-xl font-bold mb-3">Get Better</h3>
+        {/* Leadership */}
+        <section className="mt-16" id="leadership">
+          <h2 className="text-3xl font-bold mb-8 text-center animate-fade-in">Leadership</h2>
+          <div className="space-y-4 max-w-2xl mx-auto">
+            {/* Owners */}
+            <div className="bg-mvsk-gray border-2 border-mvsk-blue rounded-lg p-6 text-center hover:bg-mvsk-blue/5 transition-colors animate-slide-up delay-100">
+              <div className="text-sm text-mvsk-blue font-semibold mb-2">OWNER</div>
+              <h3 className="text-2xl font-bold mb-2">Owner 1</h3>
               <p className="text-gray-400 text-sm">
-                Always grinding to improve our gameplay
+                TBD
               </p>
             </div>
-            <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 text-center hover:border-mvsk-blue transition-all animate-slide-up delay-200">
-              <div className="text-4xl mb-4">🤝</div>
-              <h3 className="text-xl font-bold mb-3">Play Together</h3>
+            <div className="bg-mvsk-gray border-2 border-mvsk-blue rounded-lg p-6 text-center hover:bg-mvsk-blue/5 transition-colors animate-slide-up delay-200">
+              <div className="text-sm text-mvsk-blue font-semibold mb-2">OWNER</div>
+              <h3 className="text-2xl font-bold mb-2">Owner 2</h3>
               <p className="text-gray-400 text-sm">
-                We win as a team, lose as a team
+                TBD
               </p>
             </div>
-            <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 text-center hover:translate-y-[-4px] transition-transform animate-slide-up delay-300">
-              <div className="text-4xl mb-4">💪</div>
-              <h3 className="text-xl font-bold mb-3">Stay Locked In</h3>
+            <div className="bg-mvsk-gray border-2 border-mvsk-blue rounded-lg p-6 text-center hover:bg-mvsk-blue/5 transition-colors animate-slide-up delay-300">
+              <div className="text-sm text-mvsk-blue font-semibold mb-2">OWNER</div>
+              <h3 className="text-2xl font-bold mb-2">Owner 3</h3>
               <p className="text-gray-400 text-sm">
-                No days off when you're chasing wins
+                TBD
+              </p>
+            </div>
+            {/* Executive Manager */}
+            <div className="bg-mvsk-gray border border-mvsk-blue/60 rounded-lg p-6 text-center hover:border-mvsk-blue transition-all animate-slide-up delay-400">
+              <div className="text-sm text-mvsk-blue/80 font-semibold mb-2">EXECUTIVE MANAGER</div>
+              <h3 className="text-xl font-bold mb-2">Executive Manager</h3>
+              <p className="text-gray-400 text-sm">
+                TBD
+              </p>
+            </div>
+            {/* TBD Spots */}
+            <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 text-center hover:translate-y-[-4px] transition-transform animate-slide-up delay-500">
+              <div className="text-sm text-gray-500 font-semibold mb-2">POSITION</div>
+              <h3 className="text-xl font-bold mb-2 text-gray-500">TBD</h3>
+              <p className="text-gray-400 text-sm">
+                Coming Soon
+              </p>
+            </div>
+            <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 text-center hover:translate-y-[-4px] transition-transform animate-slide-up delay-600">
+              <div className="text-sm text-gray-500 font-semibold mb-2">POSITION</div>
+              <h3 className="text-xl font-bold mb-2 text-gray-500">TBD</h3>
+              <p className="text-gray-400 text-sm">
+                Coming Soon
               </p>
             </div>
           </div>
