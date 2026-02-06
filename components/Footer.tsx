@@ -99,38 +99,23 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Resources */}
+          {/* Legal */}
           <div className="animate-slide-up delay-200">
-            <h3 className="text-xl font-bold text-mvsk-blue mb-4">Resources</h3>
+            <h3 className="text-xl font-bold text-mvsk-blue mb-4">Legal</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/resources" className="text-gray-400 hover:text-mvsk-blue hover:translate-x-1 inline-block transition-all">
-                  All Resources
+                <Link href="/terms" className="text-gray-400 hover:text-mvsk-blue hover:translate-x-1 inline-block transition-all">
+                  Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="/resources" className="text-gray-400 hover:text-mvsk-blue hover:translate-x-1 inline-block transition-all">
-                  Media Kit
-                </Link>
-              </li>
-              <li>
-                <Link href="/resources" className="text-gray-400 hover:text-mvsk-blue hover:translate-x-1 inline-block transition-all">
-                  Press Releases
-                </Link>
-              </li>
-              <li>
-                <Link href="/resources" className="text-gray-400 hover:text-mvsk-blue hover:translate-x-1 inline-block transition-all">
-                  Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/resources" className="text-gray-400 hover:text-mvsk-blue hover:translate-x-1 inline-block transition-all">
+                <Link href="/privacy" className="text-gray-400 hover:text-mvsk-blue hover:translate-x-1 inline-block transition-all">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/resources" className="text-gray-400 hover:text-mvsk-blue hover:translate-x-1 inline-block transition-all">
-                  Terms of Service
+                <Link href="/partners" className="text-gray-400 hover:text-mvsk-blue hover:translate-x-1 inline-block transition-all">
+                  Contact Us
                 </Link>
               </li>
             </ul>
@@ -162,7 +147,7 @@ export default function Footer() {
         <div className="border-t border-mvsk-blue/20 mt-10 pt-8 flex justify-between items-center text-gray-400 text-sm animate-fade-in delay-300">
           <p>&copy; {currentYear} MVSK Esports. All rights reserved. | Built for competitive excellence.</p>
           <p className="text-right">
-            Built/Coded by:{' '}
+            Coded by{' '}
             <Link 
               href="/star" 
               className="text-purple-500 underline hover:text-purple-400 transition-colors font-semibold"

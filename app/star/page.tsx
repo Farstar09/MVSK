@@ -3,11 +3,12 @@ export default function Star() {
     <div className="min-h-[60vh] flex items-center justify-center py-16 px-4">
       <div className="container mx-auto max-w-2xl text-center">
         <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-12 animate-fade-in">
-          <h1 className="text-4xl font-bold mb-8 animate-slide-down">
-            <span className="text-purple-500">I coded it</span>
+          <p className="text-sm uppercase tracking-widest text-gray-400 mb-4 animate-slide-down">Website Design &amp; Development</p>
+          <h1 className="text-5xl font-bold mb-4 animate-slide-down">
+            Coded by <span className="text-purple-500">Star</span>
           </h1>
           <p className="text-xl text-gray-400 mb-8">
-            This website was built and coded with passion.
+            This website was designed and built with passion.
           </p>
           <a 
             href="https://builtbystar.com"

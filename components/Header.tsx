@@ -29,7 +29,6 @@ export default function Header() {
     { title: 'Schedule', url: '/schedule' },
     { title: 'News', url: '/news' },
     { title: 'Partners', url: '/partners' },
-    { title: 'Resources', url: '/resources' },
   ]
 
   const filteredPages = searchPages.filter(p => 
@@ -37,7 +36,7 @@ export default function Header() {
   )
 
   return (
-    <header className="bg-mvsk-gray/80 border-b border-mvsk-blue/20 animate-slide-down sticky top-0 z-50 backdrop-blur-md">
+    <header className="bg-transparent border-b border-white/10 animate-slide-down sticky top-0 z-50 backdrop-blur-md">
       <nav className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2 group">
@@ -45,29 +44,24 @@ export default function Header() {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-6 items-center">
+          <div className="hidden md:flex items-center gap-6">
             <Link href="/" className="hover:text-mvsk-blue transition-colors py-2">
               Home
             </Link>
-            <Link href="/about" className="relative hover:text-mvsk-blue transition-all group py-2">
-              <span>About</span>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-mvsk-blue group-hover:w-full transition-all"></span>
+            <Link href="/about" className="hover:text-mvsk-blue transition-colors py-2">
+              About
             </Link>
-            <Link href="/teams" className="hover:text-mvsk-blue hover:translate-y-[-2px] transition-all inline-block py-2">
+            <Link href="/teams" className="hover:text-mvsk-blue transition-colors py-2">
               Teams
             </Link>
-            <Link href="/schedule" className="px-3 py-2 rounded hover:bg-mvsk-blue/10 hover:text-mvsk-blue transition-all">
+            <Link href="/schedule" className="hover:text-mvsk-blue transition-colors py-2">
               Schedule
             </Link>
-            <Link href="/news" className="relative group hover:text-mvsk-blue transition-colors py-2">
-              <span className="relative z-10">News</span>
-              <span className="absolute inset-0 bg-mvsk-blue/10 scale-0 group-hover:scale-100 transition-transform rounded"></span>
+            <Link href="/news" className="hover:text-mvsk-blue transition-colors py-2">
+              News
             </Link>
-            <Link href="/partners" className="hover:text-mvsk-blue hover:tracking-wider transition-all py-2">
+            <Link href="/partners" className="hover:text-mvsk-blue transition-colors py-2">
               Partners
-            </Link>
-            <Link href="/resources" className="hover:text-mvsk-blue transition-colors py-2">
-              Resources
             </Link>
             
             <button
@@ -138,9 +132,6 @@ export default function Header() {
             </Link>
             <Link href="/partners" className="block py-2 px-4 rounded hover:text-mvsk-blue hover:bg-mvsk-blue/10 transition-all">
               Partners
-            </Link>
-            <Link href="/resources" className="block py-2 px-4 rounded hover:text-mvsk-blue hover:bg-mvsk-blue/10 transition-all">
-              Resources
             </Link>
             <button
               onClick={toggleColorMode}
