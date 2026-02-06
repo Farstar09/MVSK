@@ -156,30 +156,30 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className={`glass-tile competition-card relative rounded-xl p-6 transition-all reveal-on-scroll ${newsBlock.visible ? 'is-visible' : ''} stagger-1`}>
-              <div className="text-sm text-gray-400 mb-2">January 15, 2026</div>
-              <h3 className="text-xl font-bold mb-3">We Won Regionals!</h3>
+              <div className="text-sm text-gray-400 mb-2">TBD</div>
+              <h3 className="text-xl font-bold mb-3">TBD</h3>
               <p className="text-gray-400 mb-4">
-                First place in the regional tournament. The team played out of their minds.
+                TBD
               </p>
               <Link href="/news" className="text-mvsk-blue hover:underline inline-flex items-center group">
                 Read More <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
               </Link>
             </div>
             <div className={`glass-tile competition-card relative rounded-xl p-6 transition-all reveal-on-scroll ${newsBlock.visible ? 'is-visible' : ''} stagger-2`}>
-              <div className="text-sm text-gray-400 mb-2">January 10, 2026</div>
-              <h3 className="text-xl font-bold mb-3">New Player Joins</h3>
+              <div className="text-sm text-gray-400 mb-2">TBD</div>
+              <h3 className="text-xl font-bold mb-3">TBD</h3>
               <p className="text-gray-400 mb-4">
-                Welcome to the newest member of MVSK Hearts. Let&apos;s get it.
+                TBD
               </p>
               <Link href="/news" className="text-mvsk-blue hover:underline inline-flex items-center group">
                 Read More <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
               </Link>
             </div>
             <div className={`glass-tile competition-card relative rounded-xl p-6 transition-all reveal-on-scroll ${newsBlock.visible ? 'is-visible' : ''} stagger-3`}>
-              <div className="text-sm text-gray-400 mb-2">January 5, 2026</div>
-              <h3 className="text-xl font-bold mb-3">2026 Season Starts</h3>
+              <div className="text-sm text-gray-400 mb-2">TBD</div>
+              <h3 className="text-xl font-bold mb-3">TBD</h3>
               <p className="text-gray-400 mb-4">
-                New year, new season. Check the schedule for upcoming matches.
+                TBD
               </p>
               <Link href="/news" className="text-mvsk-blue hover:underline inline-flex items-center group">
                 Read More <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
@@ -376,10 +376,10 @@ export default function Home() {
                   Join Discord Now
                 </a>
                 <Link
-                  href="/teams"
+                  href="/about#leadership"
                   className="px-10 py-4 bg-mvsk-dark/50 backdrop-blur rounded-lg font-bold text-lg border-2 border-white hover:scale-110 transition-all shadow-lg"
                 >
-                  Meet The Team
+                  Meet The Staff
                 </Link>
               </div>
             </div>

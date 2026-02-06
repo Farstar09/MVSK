@@ -104,29 +104,34 @@ export default function Footer() {
             <h3 className="text-xl font-bold text-mvsk-blue mb-4">Resources</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="text-gray-400 hover:text-mvsk-blue hover:translate-x-1 inline-block transition-all">
+                <Link href="/resources" className="text-gray-400 hover:text-mvsk-blue hover:translate-x-1 inline-block transition-all">
+                  All Resources
+                </Link>
+              </li>
+              <li>
+                <Link href="/resources" className="text-gray-400 hover:text-mvsk-blue hover:translate-x-1 inline-block transition-all">
                   Media Kit
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-mvsk-blue hover:translate-x-1 inline-block transition-all">
+                <Link href="/resources" className="text-gray-400 hover:text-mvsk-blue hover:translate-x-1 inline-block transition-all">
                   Press Releases
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-mvsk-blue hover:translate-x-1 inline-block transition-all">
+                <Link href="/resources" className="text-gray-400 hover:text-mvsk-blue hover:translate-x-1 inline-block transition-all">
                   Contact Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-mvsk-blue hover:translate-x-1 inline-block transition-all">
+                <Link href="/resources" className="text-gray-400 hover:text-mvsk-blue hover:translate-x-1 inline-block transition-all">
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-mvsk-blue hover:translate-x-1 inline-block transition-all">
+                <Link href="/resources" className="text-gray-400 hover:text-mvsk-blue hover:translate-x-1 inline-block transition-all">
                   Terms of Service
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -154,8 +159,17 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-mvsk-blue/20 mt-10 pt-8 text-center text-gray-400 text-sm animate-fade-in delay-300">
+        <div className="border-t border-mvsk-blue/20 mt-10 pt-8 flex justify-between items-center text-gray-400 text-sm animate-fade-in delay-300">
           <p>&copy; {currentYear} MVSK Esports. All rights reserved. | Built for competitive excellence.</p>
+          <p className="text-right">
+            Built/Coded by:{' '}
+            <Link 
+              href="/star" 
+              className="text-purple-500 underline hover:text-purple-400 transition-colors font-semibold"
+            >
+              Star
+            </Link>
+          </p>
         </div>
       </div>
     </footer>
