@@ -1,35 +1,77 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+
+/* Pre-computed particle layout so positions don't shift on re-renders */
+const PARTICLE_LAYOUT = Array.from({ length: 15 }, (_, k) => ({
+  xPos: ((k * 41 + 7) % 93) + 3,
+  delay: ((k * 1.4 + 0.2) % 5).toFixed(1),
+  speed: (10 + ((k * 2.3) % 10)).toFixed(1),
+}))
+
+/* Hook: triggers once when the element scrolls into view */
+function useOnScreen(margin = '-60px') {
+  const ref = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(false)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const io = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setVisible(true); io.disconnect() } },
+      { rootMargin: `0px 0px ${margin} 0px`, threshold: 0.12 }
+    )
+    io.observe(el)
+    return () => io.disconnect()
+  }, [margin])
+  return { ref, visible }
+}
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0)
   const [showBackToTop, setShowBackToTop] = useState(false)
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
   const [typedText, setTypedText] = useState('')
+  const [cursorBlinking, setCursorBlinking] = useState(false)
   const fullText = 'MVSK Hearts'
 
+  /* Scroll-reveal refs for each major section */
+  const newsBlock = useOnScreen()
+  const matchBlock = useOnScreen()
+  const socialBlock = useOnScreen()
+  const quoteBlock = useOnScreen()
+  const ctaBlock = useOnScreen()
+  const sponsorBlock = useOnScreen()
+  const emailBlock = useOnScreen()
+
   useEffect(() => {
-    let index = 0
-    const timer = setInterval(() => {
-      if (index <= fullText.length) {
-        setTypedText(fullText.substring(0, index))
-        index++
+    let pos = 0
+    const tick = setInterval(() => {
+      if (pos <= fullText.length) {
+        setTypedText(fullText.substring(0, pos))
+        pos++
       } else {
-        clearInterval(timer)
+        clearInterval(tick)
+        setCursorBlinking(true)
       }
-    }, 150)
-    return () => clearInterval(timer)
+    }, 130)
+    return () => clearInterval(tick)
   }, [])
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY)
-      setShowBackToTop(window.scrollY > 500)
+    let rafPending = false
+    const onScroll = () => {
+      if (!rafPending) {
+        rafPending = true
+        requestAnimationFrame(() => {
+          setScrollY(window.scrollY)
+          setShowBackToTop(window.scrollY > 500)
+          rafPending = false
+        })
+      }
     }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   const testimonials = [
@@ -49,45 +91,52 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section with Parallax */}
-      <section className="relative py-20 px-4 overflow-hidden" style={{ minHeight: '600px' }}>
+      <section className="relative py-24 md:py-32 px-4 overflow-hidden hero-area" style={{ minHeight: '640px' }}>
         <div className="hex-particle-field">
-          {[...Array(15)].map((_, i) => (
+          {PARTICLE_LAYOUT.map((p, i) => (
             <div
               key={i}
               className="hex-particle"
               style={{
-                left: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${10 + Math.random() * 10}s`,
+                left: `${p.xPos}%`,
+                animationDelay: `${p.delay}s`,
+                animationDuration: `${p.speed}s`,
               }}
             />
           ))}
         </div>
+        <div className="absolute inset-0 hero-mesh-gradient" />
         <div 
-          className="absolute inset-0 bg-gradient-to-r from-mvsk-blue/10 to-transparent"
-          style={{ transform: `translateY(${scrollY * 0.5}px)` }}
+          className="absolute inset-0 bg-gradient-to-r from-mvsk-blue/8 to-transparent"
+          style={{ transform: `translateY(${scrollY * 0.3}px)` }}
         ></div>
         <div className="container mx-auto relative z-10">
           <div className="max-w-4xl">
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 text-mvsk-blue animate-slide-in-left">
+            <div className="inline-block mb-5 px-4 py-1.5 rounded-full border border-mvsk-blue/30 bg-mvsk-blue/5 backdrop-blur-sm anim-hero-entry">
+              <span className="text-xs md:text-sm font-semibold tracking-widest uppercase text-mvsk-blue">⚡ Competitive Valorant</span>
+            </div>
+            <h1 className="text-7xl md:text-9xl font-bold mb-4 text-mvsk-blue anim-hero-entry stagger-1">
               MVSK
             </h1>
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 animate-slide-in-left delay-100">
-              Dominating Valorant as <span className="text-mvsk-blue esports-typing-text inline-block">{typedText}</span>
+            <h2 className="text-2xl md:text-4xl font-bold mb-6 anim-hero-entry stagger-2">
+              Dominating Valorant as{' '}
+              <span className="text-mvsk-blue">
+                {typedText}<span className={`typed-caret ${cursorBlinking ? 'caret-blink' : ''}`}>|</span>
+              </span>
             </h2>
-            <p className="text-xl text-gray-400 mb-8 animate-slide-in-left delay-200">
+            <p className="text-lg md:text-xl text-gray-400 mb-10 anim-hero-entry stagger-3 max-w-2xl">
               Watch us compete, catch the streams, and join the Discord
             </p>
-            <div className="flex flex-wrap gap-4 animate-slide-in-left delay-300">
+            <div className="flex flex-wrap gap-4 anim-hero-entry stagger-4">
               <Link 
                 href="/teams" 
-                className="px-8 py-3 bg-mvsk-blue hover:bg-blue-600 rounded-lg font-semibold action-btn-energy transition-all hover:scale-105"
+                className="px-8 py-3 bg-mvsk-blue hover:bg-blue-600 rounded-lg font-semibold action-btn-energy transition-all hover:scale-105 shadow-lg shadow-mvsk-blue/20"
               >
                 Meet the Team
               </Link>
               <Link 
                 href="/schedule" 
-                className="px-8 py-3 border-2 border-mvsk-blue hover:bg-mvsk-blue/10 rounded-lg font-semibold transition-all hover:scale-105"
+                className="px-8 py-3 border-2 border-mvsk-blue/50 hover:border-mvsk-blue hover:bg-mvsk-blue/10 rounded-lg font-semibold transition-all hover:scale-105 backdrop-blur-sm"
               >
                 View Schedule
               </Link>
@@ -98,43 +147,42 @@ export default function Home() {
 
       {/* Featured News Section */}
       <section className="py-16 px-4 bg-mvsk-gray/50">
-        <div className="container mx-auto">
-          <div className="flex items-center justify-between mb-8 animate-fade-in">
+        <div ref={newsBlock.ref} className="container mx-auto">
+          <div className={`flex items-center justify-between mb-8 reveal-on-scroll ${newsBlock.visible ? 'is-visible' : ''}`}>
             <h2 className="text-3xl font-bold">Latest News</h2>
             <Link href="/news" className="text-mvsk-blue hover:underline transition-colors">
               View All →
             </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Sample news items */}
-            <div className="competition-card relative bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 hover:border-mvsk-blue transition-all animate-slide-up delay-100">
+            <div className={`glass-tile competition-card relative rounded-xl p-6 transition-all reveal-on-scroll ${newsBlock.visible ? 'is-visible' : ''} stagger-1`}>
               <div className="text-sm text-gray-400 mb-2">January 15, 2026</div>
               <h3 className="text-xl font-bold mb-3">We Won Regionals!</h3>
               <p className="text-gray-400 mb-4">
                 First place in the regional tournament. The team played out of their minds.
               </p>
-              <Link href="/news" className="text-mvsk-blue hover:underline inline-flex items-center">
-                Read More <span className="ml-1">→</span>
+              <Link href="/news" className="text-mvsk-blue hover:underline inline-flex items-center group">
+                Read More <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
               </Link>
             </div>
-            <div className="competition-card relative bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 hover:bg-mvsk-blue/5 transition-all animate-slide-up delay-200">
+            <div className={`glass-tile competition-card relative rounded-xl p-6 transition-all reveal-on-scroll ${newsBlock.visible ? 'is-visible' : ''} stagger-2`}>
               <div className="text-sm text-gray-400 mb-2">January 10, 2026</div>
               <h3 className="text-xl font-bold mb-3">New Player Joins</h3>
               <p className="text-gray-400 mb-4">
-                Welcome to the newest member of MVSK Hearts. Let's get it.
+                Welcome to the newest member of MVSK Hearts. Let&apos;s get it.
               </p>
-              <Link href="/news" className="text-mvsk-blue hover:underline inline-flex items-center">
-                Read More <span className="ml-1">→</span>
+              <Link href="/news" className="text-mvsk-blue hover:underline inline-flex items-center group">
+                Read More <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
               </Link>
             </div>
-            <div className="competition-card relative bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 transition-all animate-slide-up delay-300">
+            <div className={`glass-tile competition-card relative rounded-xl p-6 transition-all reveal-on-scroll ${newsBlock.visible ? 'is-visible' : ''} stagger-3`}>
               <div className="text-sm text-gray-400 mb-2">January 5, 2026</div>
               <h3 className="text-xl font-bold mb-3">2026 Season Starts</h3>
               <p className="text-gray-400 mb-4">
                 New year, new season. Check the schedule for upcoming matches.
               </p>
-              <Link href="/news" className="text-mvsk-blue hover:underline inline-flex items-center">
-                Read More <span className="ml-1">→</span>
+              <Link href="/news" className="text-mvsk-blue hover:underline inline-flex items-center group">
+                Read More <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
               </Link>
             </div>
           </div>
@@ -143,15 +191,15 @@ export default function Home() {
 
       {/* Upcoming Matches */}
       <section className="py-16 px-4">
-        <div className="container mx-auto">
-          <div className="flex items-center justify-between mb-8 animate-fade-in">
+        <div ref={matchBlock.ref} className="container mx-auto">
+          <div className={`flex items-center justify-between mb-8 reveal-on-scroll ${matchBlock.visible ? 'is-visible' : ''}`}>
             <h2 className="text-3xl font-bold">Upcoming Matches</h2>
             <Link href="/schedule" className="text-mvsk-blue hover:underline transition-colors">
               Full Schedule →
             </Link>
           </div>
           <div className="space-y-4">
-            <div className="upcoming-match bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 flex flex-col md:flex-row items-center justify-between transition-all animate-slide-in-left delay-100">
+            <div className={`upcoming-match glass-tile rounded-xl p-6 flex flex-col md:flex-row items-center justify-between transition-all reveal-on-scroll ${matchBlock.visible ? 'is-visible' : ''} stagger-1`}>
               <div className="flex items-center space-x-6 mb-4 md:mb-0">
                 <div className="text-center">
                   <div className="text-2xl font-bold">FEB</div>
@@ -167,7 +215,7 @@ export default function Home() {
                 <div className="text-gray-400 font-semibold">19:00 EST</div>
               </div>
             </div>
-            <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-mvsk-blue/5 transition-all animate-slide-in-left delay-200">
+            <div className={`glass-tile rounded-xl p-6 flex flex-col md:flex-row items-center justify-between hover:bg-mvsk-blue/5 transition-all reveal-on-scroll ${matchBlock.visible ? 'is-visible' : ''} stagger-2`}>
               <div className="flex items-center space-x-6 mb-4 md:mb-0">
                 <div className="text-center">
                   <div className="text-2xl font-bold">FEB</div>
@@ -186,10 +234,10 @@ export default function Home() {
 
       {/* Discord & Streams */}
       <section className="py-16 px-4 bg-mvsk-gray/50">
-        <div className="container mx-auto">
+        <div ref={socialBlock.ref} className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Discord Widget */}
-            <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-8 hover:border-mvsk-blue transition-colors animate-slide-up delay-100">
+            <div className={`glass-tile rounded-xl p-8 hover:border-mvsk-blue transition-colors reveal-on-scroll ${socialBlock.visible ? 'is-visible' : ''} stagger-1`}>
               <h2 className="text-3xl font-bold mb-6">Join the Discord</h2>
               <p className="text-gray-400 mb-6">
                 Hang out with fans, get updates, and chat with us
@@ -213,7 +261,7 @@ export default function Home() {
             </div>
 
             {/* Live Streams */}
-            <div className="bg-mvsk-gray border border-mvsk-blue/20 rounded-lg p-8 hover:bg-mvsk-blue/5 transition-colors animate-slide-up delay-200">
+            <div className={`glass-tile rounded-xl p-8 hover:bg-mvsk-blue/5 transition-colors reveal-on-scroll ${socialBlock.visible ? 'is-visible' : ''} stagger-2`}>
               <h2 className="text-3xl font-bold mb-6">Watch Live</h2>
               <p className="text-gray-400 mb-6">
                 Catch our matches and VODs
@@ -255,8 +303,8 @@ export default function Home() {
 
       {/* Community Testimonials Carousel */}
       <section className="py-16 px-4 bg-mvsk-gray/50">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center">What Fans Are Saying</h2>
+        <div ref={quoteBlock.ref} className="container mx-auto">
+          <h2 className={`text-3xl font-bold mb-12 text-center reveal-on-scroll ${quoteBlock.visible ? 'is-visible' : ''}`}>What Fans Are Saying</h2>
           <div className="relative max-w-4xl mx-auto">
             <div className="overflow-hidden">
               <div 
@@ -311,8 +359,8 @@ export default function Home() {
 
       {/* Big CTA Section */}
       <section className="py-24 px-4">
-        <div className="container mx-auto">
-          <div className="relative overflow-hidden rounded-2xl p-12 md:p-16 text-center cta-gradient">
+        <div ref={ctaBlock.ref} className="container mx-auto">
+          <div className={`relative overflow-hidden rounded-2xl p-12 md:p-16 text-center cta-gradient reveal-on-scroll ${ctaBlock.visible ? 'is-visible' : ''}`}>
             <div className="relative z-10">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Support MVSK Hearts?</h2>
               <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
@@ -341,20 +389,19 @@ export default function Home() {
 
       {/* Sponsors */}
       <section className="py-16 px-4 bg-mvsk-gray/50">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-center animate-fade-in">Our Partners</h2>
+        <div ref={sponsorBlock.ref} className="container mx-auto">
+          <h2 className={`text-3xl font-bold mb-8 text-center reveal-on-scroll ${sponsorBlock.visible ? 'is-visible' : ''}`}>Our Partners</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
             {['Partner 1', 'Partner 2', 'Partner 3', 'Partner 4'].map((partner, idx) => (
               <div 
                 key={idx}
-                className="roster-member-card w-40 h-24 bg-mvsk-gray border border-mvsk-blue/20 rounded-lg flex items-center justify-center text-gray-400 transition-all"
-                style={{ animationDelay: `${idx * 100}ms` }}
+                className={`roster-member-card glass-tile w-40 h-24 rounded-lg flex items-center justify-center text-gray-400 transition-all reveal-on-scroll ${sponsorBlock.visible ? 'is-visible' : ''} stagger-${idx + 1}`}
               >
                 {partner}
               </div>
             ))}
           </div>
-          <div className="text-center mt-8 animate-fade-in delay-500">
+          <div className={`text-center mt-8 reveal-on-scroll ${sponsorBlock.visible ? 'is-visible' : ''} stagger-4`}>
             <Link href="/partners" className="text-mvsk-blue hover:underline transition-colors inline-flex items-center gap-2">
               View All Partners <span>→</span>
             </Link>
@@ -364,8 +411,8 @@ export default function Home() {
 
       {/* Newsletter CTA */}
       <section className="py-16 px-4">
-        <div className="container mx-auto max-w-2xl">
-          <div className="bg-mvsk-gray border-2 border-mvsk-blue/30 rounded-xl p-8 text-center bracket-highlight">
+        <div ref={emailBlock.ref} className="container mx-auto max-w-2xl">
+          <div className={`glass-tile border-2 border-mvsk-blue/30 rounded-xl p-8 text-center bracket-highlight reveal-on-scroll ${emailBlock.visible ? 'is-visible' : ''}`}>
             <h3 className="text-2xl font-bold mb-4">Never Miss a Match</h3>
             <p className="text-gray-400 mb-6">Subscribe for match alerts, roster updates, and exclusive MVSK content</p>
             <form className="flex flex-col md:flex-row gap-3" onSubmit={(e) => { e.preventDefault(); alert('Thanks for subscribing!'); }}>
