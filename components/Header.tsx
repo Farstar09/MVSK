@@ -41,7 +41,6 @@ export default function Header() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2 group">
             <div className="text-2xl font-bold text-mvsk-blue group-hover:scale-110 transition-transform duration-300">MVSK</div>
-            <div className="text-sm text-gray-400 group-hover:text-mvsk-blue transition-colors">Esports</div>
           </Link>
 
           {/* Desktop Menu */}
