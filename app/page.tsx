@@ -242,9 +242,9 @@ export default function Home() {
               <p className="text-gray-400 mb-6">
                 Hang out with fans, get updates, and chat with us
               </p>
-              {/* TODO: Replace YOUR_SERVER_ID with your actual Discord server ID */}
+              {/* Discord Widget */}
               <iframe 
-                src="https://discord.com/widget?id=YOUR_SERVER_ID&theme=dark" 
+                src="https://discord.com/widget?id=1069047924765511750&theme=dark" 
                 width="100%" 
                 height="300" 
                 className="rounded-lg border-0"
@@ -362,8 +362,8 @@ export default function Home() {
         <div ref={ctaBlock.ref} className="container mx-auto">
           <div className={`relative overflow-hidden rounded-2xl p-12 md:p-16 text-center cta-gradient reveal-on-scroll ${ctaBlock.visible ? 'is-visible' : ''}`}>
             <div className="relative z-10">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Support MVSK Hearts?</h2>
-              <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Ready to Support MVSK Hearts?</h2>
+              <p className="text-xl mb-8 max-w-2xl mx-auto text-white/90">
                 Join our growing community of fans and never miss a match. Get exclusive updates and behind-the-scenes content.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
@@ -377,7 +377,7 @@ export default function Home() {
                 </a>
                 <Link
                   href="/about#leadership"
-                  className="px-10 py-4 bg-mvsk-dark/50 backdrop-blur rounded-lg font-bold text-lg border-2 border-white hover:scale-110 transition-all shadow-lg"
+                  className="px-10 py-4 bg-mvsk-dark/50 backdrop-blur rounded-lg font-bold text-lg border-2 border-white text-white hover:scale-110 transition-all shadow-lg"
                 >
                   Meet The Staff
                 </Link>
